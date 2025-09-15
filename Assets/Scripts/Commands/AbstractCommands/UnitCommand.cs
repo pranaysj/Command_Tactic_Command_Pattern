@@ -5,14 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Command.Command.AbstractCommand
+namespace Command.Commands
 {
-    public abstract class IUnitCommand : ICommand
+    public abstract class UnitCommand : ICommand
     {
-        public int ActorUnitID;
-        public int TagetUnitID;
-        public int ActorPlayerID;
-        public int TargetPlayerID;
+        public CommandData commandData;
 
         protected UnitController actorUnit;
         protected UnitController targetUnit;
@@ -20,5 +17,9 @@ namespace Command.Command.AbstractCommand
         public abstract void Execute();
 
         public abstract bool WillHitTarget();
+
+        public void SetActorUnit(UnitController actorUnit) => this.actorUnit = actorUnit;
+        public void SetTargetUnit(UnitController targetUnit) => this.targetUnit = targetUnit;
+
     }
 }

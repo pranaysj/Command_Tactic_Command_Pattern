@@ -5,7 +5,7 @@ using Command.Command.AbstractCommand;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Command.Command
+namespace Command.Commands
 {
     public class CommandInvoker 
     {
