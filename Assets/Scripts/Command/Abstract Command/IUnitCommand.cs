@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Command.AbstractCommand
+namespace Command.Command.AbstractCommand
 {
     public abstract class IUnitCommand : ICommand
     {
