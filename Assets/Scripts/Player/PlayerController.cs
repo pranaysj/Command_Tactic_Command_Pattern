@@ -96,5 +96,24 @@ namespace Command.Player
         {
             GetUnitByID(commandToProcess.commandData.ActorUnitID).ProcessUnitCommand(commandToProcess);
         }
+
+        internal void ResetCurrentActiveUnit()
+        {
+            units[activeUnitIndex].ResetUnitIndicator();
+
+            activeUnitIndex--;
+
+            while (activeUnitIndex >= 0)
+            {
+                if (!units[activeUnitIndex].IsAlive())
+                {
+                    activeUnitIndex--;
+                }
+                else
+                {
+                    units[activeUnitIndex].StartUnitTurn();
+                    break;
+                }
+            }
     }
 }
