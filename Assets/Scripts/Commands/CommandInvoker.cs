@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Command.Command.AbstractCommand;
+using Command.Commands;
 using UnityEngine;
 using UnityEngine.UIElements;
 
