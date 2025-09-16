@@ -1,7 +1,8 @@
+using Command.Commands;
+using Command.Main;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Command.Commands;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -23,6 +24,17 @@ namespace Command.Commands
         private void RegisterCommand(ICommand commandToRegister)
         {
             commandRegistry.Push(commandToRegister);
+        }
+        public void Undo()
+        {
+            if (!RegistryEmpty() && CommandBelongsToActivePlayer())
+                commandRegistry.Pop().Undo();
+        }
+        private bool RegistryEmpty() => commandRegistry.Count == 0;
+
+        private bool CommandBelongsToActivePlayer()
+        {
+            return (commandRegistry.Peek() as UnitCommand).commandData.ActorPlayerID == GameService.Instance.PlayerService.ActivePlayerID;
         }
     }
 
