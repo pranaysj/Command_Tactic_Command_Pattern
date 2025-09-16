@@ -25,5 +25,11 @@ namespace Command.Replay
             if (replayCommandStack.Count > 0)
                 GameService.Instance.ProcessUnitCommand(replayCommandStack.Pop());
         }
+
+    }
+    public enum ReplayState
+    {
+        ACTIVE,
+        DEACTIVE
     }
 }
