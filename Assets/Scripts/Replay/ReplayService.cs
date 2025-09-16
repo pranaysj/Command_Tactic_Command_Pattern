@@ -1,10 +1,12 @@
 ﻿using Command.Commands;
 using Command.Main;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 using UnityEngine.Playables;
 namespace Command.Replay
 {
@@ -20,8 +22,10 @@ namespace Command.Replay
 
         public void SetCommandStack(Stack<ICommand> commandsToSet) => replayCommandStack = new Stack<ICommand>(commandsToSet);
 
-        public void ExecuteNext()
+        public IEnumerator ExecuteNext()
         {
+            yield return new WaitForSeconds(1);
+
             if (replayCommandStack.Count > 0)
                 GameService.Instance.ProcessUnitCommand(replayCommandStack.Pop());
         }
