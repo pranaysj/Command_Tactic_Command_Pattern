@@ -7,6 +7,7 @@ namespace Command.Commands
     {
         private bool willHitTarget;
         private const float hitChance = 0.2f;
+        private int previousPower;
 
         public CleanseCommand(CommandData commandData)
         {
